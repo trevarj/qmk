@@ -2,14 +2,15 @@
 # Script to load qmk file onto YMKD ID75 keyboard
 # Run with super user privileges
 
-MOUNT_POINT=/media/MT.KEY
+FIRMWARE=$(find . -name '*.uf2' | fzf)
 
-while [ ! -d $MOUNT_POINT ]; do
+while [ -z "$MOUNT_POINT" ]; do
   echo "Waiting for keyboard..."
-  sleep 5
+  sleep 3
+  MOUNT_POINT=$(find /run/media -type d -name 'MT.KEY')
 done
 
 echo "Copying firmware..."
-cp ./ymdk_id75_layout_ortho_5x15_mine.uf2 $MOUNT_POINT
+cp "$FIRMWARE" "$MOUNT_POINT"
 sync
 echo "Done."
