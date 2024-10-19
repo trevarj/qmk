@@ -72,7 +72,7 @@
       "MO(1)",
       "KC_LGUI",
       "KC_LALT",
-      "KC_SPC",
+      "LT(1,KC_SPC)",
       "KC_SPC",
       "LT(2,KC_SPC)",
       "KC_ENT",
